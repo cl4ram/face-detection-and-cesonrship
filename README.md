@@ -19,4 +19,6 @@ If you can't see the video display, you probably have to enable it first. To do 
 - Parcel
 - Face detection API
 
+### Pending functionalities
 
+- Add video recorder
