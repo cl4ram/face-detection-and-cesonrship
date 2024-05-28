@@ -14,11 +14,9 @@ const options = {
 const buttonStart = document.querySelector('.photo-button')
 const strip = document.querySelector('.strip');
 
-window.addEventListener('load', (event) => {
-    if (window.FaceDetector === undefined) {
-        console.log('sad')
-    }
-})
+// const buttonStart = document.querySelector('#buttonStart')
+// const buttonStop = document.querySelector('#buttonStop')
+// const videoRecorded = document.querySelector('#videoRecorded')
 
 function handleOption(event) {
     console.log(event.currentTarget.value)
@@ -39,6 +37,32 @@ async function populateVideo() {
     canvas.width = video.videoWidth
     canvas.height = video.videoHeight
     canvas.height = video.videoHeight;  
+
+    // if (!MediaRecorder.isTypeSupported('video/webm')) { // <2>
+    //     console.warn('video/webm is not supported')
+    //   }
+    
+    // const mediaRecorder = new MediaRecorder(stream, { // <3>
+    //     mimeType: 'video/webm',
+    // })
+
+    // buttonStart.addEventListener('click', () => {
+    //   mediaRecorder.start() // <4>
+    //   buttonStart.setAttribute('disabled', '')
+    //   buttonStop.removeAttribute('disabled')
+    // })
+  
+    // buttonStop.addEventListener('click', () => {
+    //   mediaRecorder.stop() // <5>
+    //   buttonStart.removeAttribute('disabled')
+    //   buttonStop.setAttribute('disabled', '')
+    // })
+  
+    // mediaRecorder.addEventListener('dataavailable', event => {
+    //   videoRecorded.src = URL.createObjectURL(event.data) // <6>
+    //   videoRecorded.style.display = 'inline'
+    // })
+
 }
 
 async function detect() {
@@ -97,36 +121,6 @@ function takePhoto(){
 
 buttonStart.addEventListener('click', takePhoto)
 
-// async function main() {  
-//     const stream = await navigator.mediaDevices.getUserMedia({ // <1>
-//       video: true,
-//     //   audio: true,
-//     })
-  
-//     video.srcObject = stream
-//     console.log(canvas.srcObject)
-  
-//     const mediaRecorder = new MediaRecorder(stream, { // <3>
-//       mimeType: 'video/webm',
-//     })
-  
-//     buttonStart.addEventListener('click', () => {
-//       mediaRecorder.start() // <4>
-//       buttonStart.setAttribute('disabled', '')
-//       buttonStop.removeAttribute('disabled')
-//     })
-  
-//     buttonStop.addEventListener('click', () => {
-//       mediaRecorder.stop() // <5>
-//       buttonStart.removeAttribute('disabled')
-//       buttonStop.setAttribute('disabled', '')
-//     })
-  
-//     mediaRecorder.addEventListener('dataavailable', event => {
-//       videoRecorded.src = URL.createObjectURL(event.data) // <6>
-//       videoRecorded.style.display = 'inline'
-//     })
-//   }
 
 populateVideo().then(detect);
   
