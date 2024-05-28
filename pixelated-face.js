@@ -78,7 +78,13 @@ function censor(face) {
     ctx.imageSmoothingEnabled = false;
     const width = faceDetails.width * options.SCALE;
     const height = faceDetails.height * options.SCALE;
-
+    ctx.drawImage(
+        video, 
+        0, 
+        0, 
+        canvas.width,
+        canvas.height
+    );
     ctx.drawImage(
         video,
         faceDetails.x,
@@ -105,7 +111,6 @@ function censor(face) {
         height,
     );
 
-    // ctx.drawImage(video, 0, 0, width, height);
 
 }
 
